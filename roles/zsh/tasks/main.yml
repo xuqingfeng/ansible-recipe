@@ -1,0 +1,10 @@
+---
+  - name: install zsh
+    yum: name=zsh state=present
+  #- name: change login shell
+#    command: chsh -s /bin/zsh
+  - name: install oh-my-zsh
+    shell: -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    args:
+      chdir: $HOME
+      creates: .zshrc
