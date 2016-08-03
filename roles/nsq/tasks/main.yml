@@ -6,5 +6,5 @@
   - name: extract "nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz"
     unarchive: src="{{nsq_home}}/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz" dest=/usr/local copy=false
   - name: export "nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
-    # todo: fix
-    shell: "export PATH=$PATH:/usr/local/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
+    # specific for zsh
+    lineinfile: dest="~/.zshrc" line="export PATH=$PATH:/usr/local/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
