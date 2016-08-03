@@ -5,3 +5,5 @@
       - {role: git, tags: ["git"]}
       - {role: tmux, tags: ["tmux"]}
       - {role: zsh, tags: ["zsh"]}
+      - {role: golang, tags: ["golang"]}
+      - {role: golang-bin, tags: ["golang-bin"]}
