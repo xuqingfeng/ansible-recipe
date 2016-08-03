@@ -7,7 +7,7 @@
       - {role: git, tags: ["git"]}
       - {role: golang, tags: ["golang"]}
       - {role: golang-bin, tags: ["golang-bin"]}
-      - {role: influxDB}
+      - {role: influxdb}
       - {role: kapacitor}
       - {role: tmux, tags: ["tmux"]}
       - {role: zsh, tags: ["zsh"]}

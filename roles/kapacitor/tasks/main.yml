@@ -3,12 +3,20 @@
     get_url: >
             url="https://dl.influxdata.com/kapacitor/releases/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
             dest="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
+    tags:
+      - kapacitor-get-rpm
   - name: install kapacitor
     yum: name="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present
     tags:
       - kapacitor-install
   - name: start kapacitor
     service: name=kapacitor state=started
+    tags:
+      - kapacitor-start
+  - name: stop kapacitor
+    service: name=kapacitor state=stopped
+    tags:
+      - kapacitor-stop
   - name: erase kapacitor
     yum: name=kapacitor state=absent
     tags:

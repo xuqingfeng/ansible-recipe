@@ -1,21 +1,27 @@
 ---
-  - name: get influxDB rpm
+  - name: get influxdb rpm
     get_url: >
           url="https://dl.influxdata.com/influxdb/releases/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
           dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
-  - name: install influxDB
+    tags:
+      - influxDB-get-rpm
+  - name: install influxdb
     yum: name="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present
     tags:
-      - influxDB-install
-  - name: start influxDB
+      - influxdb-install
+  - name: start influxdb
     service: name=influxdb state=started
     tags:
-      - influxDB-start
-  - name: erase influxDB
+      - influxdb-start
+  - name: stop influxdb
+    service: name=influxdb state=stopped
+    tags:
+      - influxdb-stop
+  - name: erase influxdb
     yum: name=influxdb state=absent
     tags:
-      - influxDB-erase
-  - name: enable influxDB
+      - influxdb-erase
+  - name: enable influxdb
     service: name=influxdb enabled=true
     tags:
-      - influxDB-enable
+      - influxdb-enable
