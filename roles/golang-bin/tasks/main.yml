@@ -2,10 +2,10 @@
   - name: install golang binary
     get_url: url="https://storage.googleapis.com/golang/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz dest={{golang_bin_home}}/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
   - name: extarct "go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
-    command: /usr/bin/which tar -C /usr/local -xzf "{{golang_bin_home}}/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
+    command: /usr/bin/tar -C /usr/local -xzf "{{golang_bin_home}}/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
     args:
       # placeholder
       creates: /usr/local/go/.ar
   - name: export go/bin
     # todo .zshrc .profile /etc/profile
-    command: export PATH=$PATH:/usr/local/go/bin
+    shell: export PATH=$PATH:/usr/local/go/bin
