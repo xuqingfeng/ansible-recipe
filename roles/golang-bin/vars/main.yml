@@ -1,3 +1,4 @@
-version: 1.6.3
-arch: amd64
-home: /root
+---
+golang_bin_version: 1.6.3
+golang_bin_arch: amd64
+golang_bin_home: /root

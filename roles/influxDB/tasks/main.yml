@@ -1,0 +1,5 @@
+---
+  - name: get influxDB rpm
+    get_url: url="https://dl.influxdata.com/influxdb/releases/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
+  - name: install influxDB
+    yum: name="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present

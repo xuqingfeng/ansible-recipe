@@ -1,8 +1,8 @@
 ---
   - name: install golang binary
-    get_url: url="https://storage.googleapis.com/golang/go{{version}}.linux-{{arch}}.tar.gz dest={{home}}/go{{version}}.linux-{{arch}}.tar.gz"
-  - name: extarct "go{{version}}.linux-{{arch}}.tar.gz"
-    command: /usr/bin/which tar -C /usr/local -xzf "{{home}}/go{{version}}.linux-{{arch}}.tar.gz"
+    get_url: url="https://storage.googleapis.com/golang/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz dest={{golang_bin_home}}/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
+  - name: extarct "go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
+    command: /usr/bin/which tar -C /usr/local -xzf "{{golang_bin_home}}/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
     args:
       # placeholder
       creates: /usr/local/go/VERSION
