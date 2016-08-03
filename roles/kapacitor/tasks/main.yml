@@ -1,0 +1,7 @@
+---
+  - name: get kapacitor rpm
+    get_url: >
+            url="https://dl.influxdata.com/kapacitor/releases/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
+            dest="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
+  - name: install kapacitor
+    yum: name="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present

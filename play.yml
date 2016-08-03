@@ -5,7 +5,9 @@
       - vars.yml
     roles:
       - {role: git, tags: ["git"]}
-      - {role: tmux, tags: ["tmux"]}
-      - {role: zsh, tags: ["zsh"]}
       - {role: golang, tags: ["golang"]}
       - {role: golang-bin, tags: ["golang-bin"]}
+      - {role: influxDB, tags: ["influxDB"]}
+      - {role: kapacitor, tags: ["kapacitor"]}
+      - {role: tmux, tags: ["tmux"]}
+      - {role: zsh, tags: ["zsh"]}
