@@ -1,0 +1,6 @@
+---
+  - hosts: all
+    remote_user: root
+    roles:
+      - {role: git, tags: ["git"]}
+      - {role: tmux, tags: ["tmux"]}
