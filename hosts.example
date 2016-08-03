@@ -1,0 +1,6 @@
+# mv hosts.example hosts
+[web]
+www.example.com
+
+[db]
+db.example.com
