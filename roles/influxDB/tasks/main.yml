@@ -5,3 +5,17 @@
           dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
   - name: install influxDB
     yum: name="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present
+    tags:
+      - influxDB-install
+  - name: start influxDB
+    service: name=influxdb state=started
+    tags:
+      - influxDB-start
+  - name: erase influxDB
+    yum: name=influxdb state=absent
+    tags:
+      - influxDB-erase
+  - name: enable influxDB
+    service: name=influxdb enabled=true
+    tags:
+      - influxDB-enable

@@ -5,3 +5,15 @@
             dest="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
   - name: install kapacitor
     yum: name="{{kapacitor_home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present
+    tags:
+      - kapacitor-install
+  - name: start kapacitor
+    service: name=kapacitor state=started
+  - name: erase kapacitor
+    yum: name=kapacitor state=absent
+    tags:
+      - kapacitor-erase
+  - name: enable kapacitor
+    service: name=kapacitor enabled=true
+    tags:
+      - kapacitor-enable
