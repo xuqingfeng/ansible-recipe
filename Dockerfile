@@ -1,4 +1,4 @@
-# Dockerfile for ansible-recipe
+# Dockerfile for xuqingfeng/ansible-recipe
 FROM centos:centos7
 MAINTAINER "xuqingfeng" <js-xqf@hotmail.com>
 ENV container docker
@@ -10,7 +10,10 @@ rm -f /lib/systemd/system/local-fs.target.wants/*; \
 rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
 rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
-rm -f /lib/systemd/system/anaconda.target.wants/*; && \
+rm -f /lib/systemd/system/anaconda.target.wants/* && \
+\
+echo "===> Updating..." && \
+yum -y update && \
 \
 echo "===> Installing EPEL..." && \
 yum -y install epel-release && \
@@ -23,4 +26,5 @@ CMD [ "ansible-playbook", "--version" ]
 
 WORKDIR /tmp
 COPY . /tmp
-RUN echo 'localhost ansible_connection=local' > inventory && ansible-playbook -i inventory play.yml --tags="git"
+RUN echo 'localhost ansible_connection=local' > inventory
+#RUN ansible-playbook -i inventory play.yml --tags="git golang ..."
