@@ -5,9 +5,11 @@
       - vars.yml
     roles:
       - {role: caddy, tags: ["caddy"]}
+      - {role: docker}
       - {role: git, tags: ["git"]}
       - {role: golang, tags: ["golang"]}
       - {role: golang-bin, tags: ["golang-bin"]}
+      - {role: grafana}
       - {role: influxdb}
       - {role: kapacitor}
       - {role: nsq, tags: ["nsq"]}

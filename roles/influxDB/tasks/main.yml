@@ -9,6 +9,10 @@
     yum: name="{{home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present
     tags:
       - influxdb-install
+  - name: erase influxdb
+    yum: name=influxdb state=absent
+    tags:
+      - influxdb-erase
   - name: start influxdb
     service: name=influxdb state=started
     tags:
@@ -17,10 +21,6 @@
     service: name=influxdb state=stopped
     tags:
       - influxdb-stop
-  - name: erase influxdb
-    yum: name=influxdb state=absent
-    tags:
-      - influxdb-erase
   - name: enable influxdb
     service: name=influxdb enabled=true
     tags:

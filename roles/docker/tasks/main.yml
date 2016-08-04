@@ -1,0 +1,23 @@
+---
+  - name: copy docker.repo
+    copy: src=docker.repo dest=/etc/yum.repos.d/docker.repo
+  - name: install docker
+    yum: name=docker-engine state=present
+    tags:
+      - docker-install
+  - name: erase docker
+    yum: name=docker-engine state=absent
+    tags:
+      - docker-erase
+  - name: start docker
+    service: name=docker state=started
+    tags:
+      - docker-start
+  - name: stop docker
+    service: name=docker state=stopped
+    tags:
+      - docker-stop
+  - name: enable docker
+    service: name=docker enabled=true
+    tags:
+      - docker-enable

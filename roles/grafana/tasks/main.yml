@@ -1,0 +1,21 @@
+---
+  - name: install grafana
+    yum: name="https://grafanarel.s3.amazonaws.com/builds/grafana-{{grafana_version}}-{{grafana_magic_number}}.{{grafana_arch}}.rpm" state=present
+    tags:
+      - install grafana
+  - name: erase grafana
+    yum: name=grafana state=absent
+    tags:
+      - grafana-erase
+  - name: start grafana
+    service: name=grafana-server state=started
+    tags:
+      - grafana-start
+  - name: stop grafana
+    service: name=grafana-server state=stopped
+    tags:
+      - grafana-stop
+  - name: enable grafana
+    service: name=grafana-server enabled=true
+    tags:
+      - grafana-enable

@@ -9,6 +9,10 @@
     yum: name="{{home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present
     tags:
       - kapacitor-install
+  - name: erase kapacitor
+    yum: name=kapacitor state=absent
+    tags:
+      - kapacitor-erase
   - name: start kapacitor
     service: name=kapacitor state=started
     tags:
@@ -17,10 +21,6 @@
     service: name=kapacitor state=stopped
     tags:
       - kapacitor-stop
-  - name: erase kapacitor
-    yum: name=kapacitor state=absent
-    tags:
-      - kapacitor-erase
   - name: enable kapacitor
     service: name=kapacitor enabled=true
     tags:
