@@ -3,4 +3,3 @@ nsq_version: 0.3.8
 nsq_os: linux
 nsq_arch: amd64
 nsq_go_version: 1.6.2
-nsq_home: /root

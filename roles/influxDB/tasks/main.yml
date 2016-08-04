@@ -1,12 +1,12 @@
 ---
   - name: get influxdb rpm
     get_url: >
-          url="https://dl.influxdata.com/influxdb/releases/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
-          dest="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
+          url="https://dl.influxdata.com/influxdb/releases/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" dest="{{home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
+          dest="{{home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm"
     tags:
       - influxDB-get-rpm
   - name: install influxdb
-    yum: name="{{influxdb_home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present
+    yum: name="{{home}}/influxdb-{{influxdb_version}}.{{influxdb_arch}}.rpm" state=present
     tags:
       - influxdb-install
   - name: start influxdb

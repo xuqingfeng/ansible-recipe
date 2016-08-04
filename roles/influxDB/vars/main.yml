@@ -1,4 +1,3 @@
 ---
 influxdb_version: 0.13.0
 influxdb_arch: x86_64
-influxdb_home: /root
