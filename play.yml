@@ -4,11 +4,12 @@
     vars_files:
       - vars.yml
     roles:
+      - {role: caddy, tags: ["caddy"]}
       - {role: git, tags: ["git"]}
       - {role: golang, tags: ["golang"]}
       - {role: golang-bin, tags: ["golang-bin"]}
       - {role: influxdb}
       - {role: kapacitor}
-      - {role: nsq, tags: ["nsq"]}      
+      - {role: nsq, tags: ["nsq"]}
       - {role: tmux, tags: ["tmux"]}
       - {role: zsh, tags: ["zsh"]}
