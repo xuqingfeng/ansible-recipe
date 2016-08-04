@@ -1,4 +1,3 @@
-# mv hosts.example hosts
 [web]
 www.example.com
 

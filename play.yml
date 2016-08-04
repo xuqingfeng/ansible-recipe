@@ -5,6 +5,7 @@
     vars_files:
       - vars.yml
     roles:
+      - {role: ansible, tags: ["ansible"]}
       - {role: caddy, tags: ["caddy"]}
       - {role: docker}
       - {role: git, tags: ["git"]}
