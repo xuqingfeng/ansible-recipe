@@ -1,0 +1,22 @@
+---
+  - name: install telegraf
+    yum: name="https://dl.influxdata.com/telegraf/releases/telegraf-{{telegraf_version}}.{{telegraf_arch}}.rpm" state=present
+    tags:
+      - telegraf-install
+  - name: erase telegraf
+    yum: name=telegraf state=absent
+    tags:
+      - telegraf-erase
+# todo: config stuff
+  - name: start telegraf
+    service: name=telegraf state=started
+    tags:
+      - telegraf-start
+  - name: stop telegraf
+    service: name=telegraf state=stopped
+    tags:
+      - telegraf-stop
+  - name: enable telegraf
+    service: name=telegraf enabled=true
+    tags:
+      - telegraf-enable

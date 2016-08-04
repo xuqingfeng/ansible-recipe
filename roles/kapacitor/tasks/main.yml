@@ -1,12 +1,6 @@
 ---
-  - name: get kapacitor rpm
-    get_url: >
-            url="https://dl.influxdata.com/kapacitor/releases/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
-            dest="{{home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm"
-    tags:
-      - kapacitor-get-rpm
   - name: install kapacitor
-    yum: name="{{home}}/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present
+    yum: name="https://dl.influxdata.com/kapacitor/releases/kapacitor-{{kapacitor_version}}.{{kapacitor_arch}}.rpm" state=present
     tags:
       - kapacitor-install
   - name: erase kapacitor

@@ -2,9 +2,9 @@
   - name: get nsq archive file
     get_url: >
             url="https://s3.amazonaws.com/bitly-downloads/nsq/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz"
-            dest="{{home}}/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz"
+            dest="~/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz"
   - name: extract "nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz"
-    unarchive: src="{{home}}/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz" dest=/usr/local copy=false
+    unarchive: src="~/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}.tar.gz" dest=/usr/local copy=false
   - name: export "nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
     # specific for zsh; don't forget to source ~/.zshrc
-    lineinfile: dest="~/.zshrc" line="export PATH=$PATH:/usr/local/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
+    lineinfile: dest=~/.zshrc line="export PATH=$PATH:/usr/local/nsq-{{nsq_version}}.{{nsq_os}}-{{nsq_arch}}.go{{nsq_go_version}}/bin"
