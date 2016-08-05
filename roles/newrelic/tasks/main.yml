@@ -1,0 +1,9 @@
+---
+  - name: get newrelic servers agent repo
+    yum: name="https://download.newrelic.com/pub/newrelic/el5/i386/newrelic-repo-{{newrelic_servers_version}}.noarch.rpm" state=present
+  - name: install newrelic servers agent
+    yum: name=newrelic-sysmond state=present
+  - name: set newrelic license key
+    command: nrsysmond-config --set license_key={{newrelic_license_key}}
+  - name: start newrelic servers agent
+    service: name=newrelic-sysmon state=started

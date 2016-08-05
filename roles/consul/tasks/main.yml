@@ -1,0 +1,5 @@
+---
+  - name: get consul binary
+    get_url: url="https://releases.hashicorp.com/consul/{{consul_version}}/consul_{{consul_version}}_linux_{{consul_arch}}.zip" dest="~/consul_{{consul_version}}_linux_{{consul_arch}}.zip"
+  - name: extract "consul_{{consul_version}}_linux_{{consul_arch}}.zip"
+    unarchive: src="~/consul_{{consul_version}}_linux_{{consul_arch}}.zip" dest=/usr/local/bin copy=false
