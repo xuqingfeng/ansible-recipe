@@ -13,7 +13,9 @@
       - {role: golang-bin, tags: ["golang-bin"]}
       - {role: grafana}
       - {role: influxdb}
+      - {role: java}
       - {role: kapacitor}
+      - {role: newrelic}
       - {role: nsq, tags: ["nsq"]}
       - {role: telegraf}
       - {role: tmux, tags: ["tmux"]}
