@@ -22,7 +22,7 @@ echo "===> Installing Ansible..." && \
 yum -y install ansible
 
 VOLUME [ "/sys/fs/cgroup" ]
-CMD [ "ansible-playbook", "--version" ]
+CMD [ "ansible", "--version" ]
 
 WORKDIR /tmp
 COPY . /tmp
