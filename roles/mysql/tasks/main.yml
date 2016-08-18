@@ -1,0 +1,6 @@
+---
+  - name: install mysql server
+    yum: name=mariadb-server state=present
+  - name: install mysql client
+    yum: name=mariadb state=present
+# secure install
