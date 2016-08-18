@@ -9,7 +9,7 @@
       - {role: caddy, tags: ["caddy"]}
       - {role: docker}
       - {role: git, tags: ["git"]}
-      - {role: golang, tags: ["golang"]}
+      - {role: golang}
       - {role: golang-bin, tags: ["golang-bin"]}
       - {role: grafana}
       - {role: influxdb}

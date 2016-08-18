@@ -1,3 +1,18 @@
 ---
   - name: install golang
     yum: name=golang state=present
+    tags:
+      - golang
+  - name: get golang binary
+    get_url: url="https://storage.googleapis.com/golang/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz" dest="~/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
+    tags:
+      - golang-latest
+  - name: extarct "go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz"
+    unarchive: src="~/go{{golang_bin_version}}.linux-{{golang_bin_arch}}.tar.gz" dest=/usr/local copy=false
+    tags:
+      - golang-latest
+  - name: export go/bin
+    # specific for zsh
+    lineinfile: dest=~/.zshrc line="export PATH=$PATH:/usr/local/go/bin"
+    tags:
+      - golang-latest
